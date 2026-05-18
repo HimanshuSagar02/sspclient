@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import api from '@/services/api';
@@ -14,11 +14,6 @@ type DueMeta = {
   nextFeeDueAt?: string;
 };
 
-declare global {
-  interface Window {
-    Razorpay?: any;
-  }
-}
 
 export const StudentDuePaymentPage = () => {
   const queryClient = useQueryClient();
@@ -62,8 +57,6 @@ export const StudentDuePaymentPage = () => {
     onError: (err) => toast.error(getApiErrorMessage(err, 'Payment failed')),
   });
 
-  const [receiptNumber, setReceiptNumber] = useState<string>('');
-
   useEffect(() => {
     // Load razorpay checkout script
     // If already present, ignore
@@ -87,8 +80,6 @@ export const StudentDuePaymentPage = () => {
     }
 
     const order = await createOrder.mutateAsync({ amountDue: dueAmount });
-
-    setReceiptNumber(order.receiptNumber);
 
     const options = {
       key: order.keyId, // optional depending on backend; if not provided, Razorpay will still require key
