@@ -2,7 +2,7 @@ import axios from 'axios';
 import type { ApiResponse } from '@/types';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL || '/api',
   withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
 });
@@ -23,7 +23,7 @@ api.interceptors.response.use(
       original._retry = true;
       try {
         const { data } = await axios.post<ApiResponse<{ accessToken: string }>>(
-          '/api/auth/refresh',
+          `${import.meta.env.VITE_API_URL || '/api'}/auth/refresh`,
           {},
           { withCredentials: true }
         );
