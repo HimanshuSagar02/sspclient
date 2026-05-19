@@ -78,6 +78,12 @@ export interface SiteContent {
   primaryColor: string;
   logoUrl?: string;
 
+  /** SEO (public landing page) */
+  seoTitle?: string;
+  seoDescription?: string;
+  seoKeywords?: string[];
+
+
   navLinks: NavLink[];
   hero: {
     headline: string;

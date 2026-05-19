@@ -61,8 +61,13 @@ export const HomePage = () => {
   // so the public site never blank-screens.
   const site = data ?? defaultSiteContent();
 
+  // SEO meta tags intentionally NOT injected on the frontend.
+  // (Prevents site SEO keywords from being displayed/used by the frontend.)
+
+
   return (
     <div className="min-h-screen" style={brandStyleFromColor(site.primaryColor)}>
+
       <AdBanner site={site} />
       <Navbar site={site} />
       <main>

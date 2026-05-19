@@ -4,7 +4,24 @@ export const defaultSiteContent = (): SiteContent => ({
   siteName: 'Srishti Study Point',
   tagline: 'Selection means Srishti',
   primaryColor: '#0d9488',
+  seoTitle:
+    'Top SSC Coaching in Maswasi (Rampur-Swar) Area | Srishti Study Point',
+  seoDescription:
+    'Dedicated teachers and structured coaching for SSC and government exams. Learn with expert guidance, mock tests, and consistent study support at Srishti Study Point.',
+  seoKeywords: [
+    'srishti study point maswasi',
+    'maswasi coaching',
+    'top ssc coaching maswasi',
+    'ssc coaching rampur swar',
+    'ssc coaching in maswasi',
+    'government exam coaching maswasi',
+    'ssc institute maswasi',
+    'best coaching for ssc maswasi',
+    'dedicated teachers coaching',
+    'ssc coaching rampur swar area',
+  ],
   navLinks: [],
+
   hero: {
     headline: 'SELECTION मतलब SRISHTI',
     subtext: 'Expert coaching for competitive exams.',
